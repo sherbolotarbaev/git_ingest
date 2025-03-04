@@ -1,3 +1,27 @@
+================================
+File: /sherbolotarbaev-git_ingest/README.md
+================================
+# GIT Ingest (Node.js)
+
+Turn any Git repository into a prompt-friendly text ingest for LLMs.
+
+## 🚀 Features
+
+- **Easy code context**: Get a text digest from a Git repository URL or a directory
+- **Smart Formatting**: Optimized output format for LLM prompts
+- **Statistics about**:
+  - File and directory structure
+  - Size of the extract
+  - Token count
+
+## Contributing 🚀
+
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request. 🙌🏻
+
+
+================================
+File: /sherbolotarbaev-git_ingest/index.ts
+================================
 // MIT License
 //
 // Copyright (c) 2025 Sherbolot Arbaev
@@ -1353,4 +1377,116 @@ async function removeRecursive(target: string): Promise<void> {
     return;
   }
   await runLimited(() => fs.rm(target, { recursive: true, force: true }));
+  console.info(`[GIT INGEST INFO removeRecursive] Removed: ${target}`);
 }
+
+
+================================
+File: /sherbolotarbaev-git_ingest/package.json
+================================
+{
+  "name": "git_ingest",
+  "version": "1.0.0",
+  "description": "Git Ingest (Node.js)",
+  "author": "Sherbolot Arbaev",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "ts-node ."
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^20.12.11"
+  }
+}
+
+
+================================
+File: /sherbolotarbaev-git_ingest/tsconfig.build.json
+================================
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+}
+
+
+================================
+File: /sherbolotarbaev-git_ingest/tsconfig.json
+================================
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "lib": ["es2021"],
+    "paths": {
+      "./*": ["./*"]
+    }
+  }
+}
+
+
+================================
+File: /sherbolotarbaev-git_ingest/.eslintrc.js
+================================
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: 'tsconfig.json',
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+  },
+  ignorePatterns: ['.eslintrc.js'],
+  rules: {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
+};
+
+
+================================
+File: /sherbolotarbaev-git_ingest/.prettierrc
+================================
+{
+  "printWidth": 80,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "bracketSpacing": true,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "arrowParens": "always",
+  "endOfLine": "lf"
+}
+
+

@@ -1,0 +1,2 @@
+Repository: sherbolotarbaev/git_ingest
+Files analyzed: 7

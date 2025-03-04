@@ -1,0 +1,9 @@
+Directory structure:
+└── sherbolotarbaev-git_ingest/
+    ├── README.md
+    ├── index.ts
+    ├── package.json
+    ├── tsconfig.build.json
+    ├── tsconfig.json
+    ├── .eslintrc.js
+    └── .prettierrc

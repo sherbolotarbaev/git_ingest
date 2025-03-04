@@ -1,0 +1,19 @@
+{
+  "name": "git_ingest",
+  "version": "1.0.0",
+  "description": "Git Ingest (Node.js)",
+  "author": "Sherbolot Arbaev",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "ts-node ."
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^20.12.11"
+  }
+}
